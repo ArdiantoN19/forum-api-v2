@@ -8,7 +8,7 @@ const container = require("../../container");
 const pool = require("../../database/postgres/pool");
 const createServer = require("../createServer");
 
-describe("/threads/{threadId}/comments/{commentId}/replies", () => {
+describe("/threads/{threadId}/comments/{commentId}/replies endpoint", () => {
   afterEach(async () => {
     await UsersTableTestHelper.cleanTable();
     await ThreadTableTestHelper.cleanTable();
@@ -211,7 +211,7 @@ describe("/threads/{threadId}/comments/{commentId}/replies", () => {
       };
       const server = await createServer(container);
       const userIdValidOwner = await ServerTestHelper.registerUser({ server });
-      await ServerTestHelper.registerUser({
+      const userIdInvalidOwner = await ServerTestHelper.registerUser({
         server,
         username: "john",
       });
