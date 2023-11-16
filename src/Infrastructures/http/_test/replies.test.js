@@ -103,7 +103,7 @@ describe("/threads/{threadId}/comments/{commentId}/replies", () => {
       expect(response.statusCode).toEqual(400);
       expect(responseJson.status).toEqual("fail");
       expect(responseJson.message).toEqual(
-        "tidak dapat menambahkan reply comment, request payload tidak lengkap"
+        "tidak dapat menambahkan reply comment, request payload tidak lengkap",
       );
     });
 
@@ -142,7 +142,7 @@ describe("/threads/{threadId}/comments/{commentId}/replies", () => {
       expect(response.statusCode).toEqual(400);
       expect(responseJson.status).toEqual("fail");
       expect(responseJson.message).toEqual(
-        "tidak dapat menambahkan reply comment, tipe data tidak sesuai"
+        "tidak dapat menambahkan reply comment, tipe data tidak sesuai",
       );
     });
 
@@ -211,7 +211,7 @@ describe("/threads/{threadId}/comments/{commentId}/replies", () => {
       };
       const server = await createServer(container);
       const userIdValidOwner = await ServerTestHelper.registerUser({ server });
-      const userIdInvalidOwner = await ServerTestHelper.registerUser({
+      await ServerTestHelper.registerUser({
         server,
         username: "john",
       });
@@ -251,7 +251,7 @@ describe("/threads/{threadId}/comments/{commentId}/replies", () => {
       expect(response.statusCode).toEqual(403);
       expect(responseJson.status).toEqual("fail");
       expect(responseJson.message).toEqual(
-        "Anda tidak berhak mengakses resorce ini"
+        "Anda tidak berhak mengakses resorce ini",
       );
     });
 
